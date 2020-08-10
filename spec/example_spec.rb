@@ -1,4 +1,5 @@
 require_relative "../runner"
+require_relative "./factories"
 
 context "some context" do
   let(:five) { 5 }
@@ -9,9 +10,15 @@ context "some context" do
   }
 
   describe "some examples" do
+      let(:user) { Factories::User.with_name("guy smiley") }
+
       before {
         puts "before test"
       }
+
+      it "can use factories" do
+        expect(user.name).to eq "guy smiley"
+      end
 
       it "can pass" do
           expect(1 + 1).to eq 2

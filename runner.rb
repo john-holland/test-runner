@@ -145,13 +145,11 @@ class It < Context
   end
 
   def eq(expected)
-    Expectations::Equals.new(expected, @description, @metadata, nil,
-                             lets: @lets, befores: @befores, afters: @afters)
+    Expectations::Equals.new(expected, @description, @metadata, nil, lets: @lets)
   end
 
   def raise_error(exception_class)
-    Expectations::Error.new(exception_class, @description, @metadata, nil,
-                            lets: @lets, befores: @befores, afters: @afters)
+    Expectations::Error.new(exception_class, @description, @metadata, nil, lets: @lets)
   end
 
   def method_missing(name, args = [])
